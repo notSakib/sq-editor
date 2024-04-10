@@ -10,7 +10,6 @@ const LoadingSpinner = dynamic(
   }
 );
 import { Button } from "@/components/ui/button";
-
 import dynamic from "next/dynamic";
 import { DatabaseZap, Download, Loader2, Trash2 } from "lucide-react";
 import { useState } from "react";
@@ -57,9 +56,8 @@ export default function SqlEditor({ savedQueriesInitialData }: any) {
             placeholder=""
             onChange={(evn) => setQuery(evn.target.value)}
             padding={15}
-            className="h-full w-full"
+            className="h-full w-full rounded-[8px] bg-primary-foreground"
             style={{
-              backgroundColor: "#f5f5f5",
               fontFamily:
                 "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
             }}

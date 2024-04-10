@@ -1,12 +1,7 @@
 import Link from "next/link";
 
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  RectangleEllipsis,
-  Menu,
-  FileBadge,
-  BriefcaseBusiness,
-} from "lucide-react";
+import { Menu, Github } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -76,7 +71,19 @@ export default async function PageLayout({
           </Sheet>
         </header>
         <nav className="sticky top-0 z-40 flex h-[53px] items-center gap-1 md:border-b px-4 bg-background">
-          <PathName />
+          <div className="flex justify-between items-center w-full">
+            <PathName />
+            <a
+              target="_blank"
+              href="https://github.com/notSakib/sq-editor"
+              rel="noopener noreferrer"
+              className="cursor-pointer"
+            >
+              <Button variant="link" className="cursor-pointer text-md">
+                <Github className="h-4 w-4 mr-1" /> Github
+              </Button>
+            </a>
+          </div>
         </nav>
         <main className="flex flex-1 h-screen overflow-auto flex-col gap-4 px-4 py-2">
           {children}
