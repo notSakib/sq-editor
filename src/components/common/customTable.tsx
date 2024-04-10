@@ -8,7 +8,6 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
-
 import { useVirtualizer } from "@tanstack/react-virtual";
 
 import {
@@ -151,12 +150,9 @@ const CustomTable = ({ invoices }: { invoices: [] }) => {
                   style={{
                     display: "flex",
                     position: "absolute",
-                    transform: `translateY(${virtualRow.start}px)`, //this should always be a `style` as it changes on scroll
+                    transform: `translateY(${virtualRow.start}px)`,
                     width: "100%",
                   }}
-                  // className={`
-                  // ${i % 2 === 0 ? "bg-gray-900" : "bg-gray-800"}
-                  // `}
                 >
                   {row.getVisibleCells().map((cell) => {
                     return (
