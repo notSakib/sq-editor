@@ -2,9 +2,15 @@
 const CustomTable = dynamic(() => import("@/components/common/customTable"), {
   ssr: false,
 });
-import LoadingSpinner from "@/components/common/loading-spinner";
-import { Button } from "@/components/ui/button";
 import { CSVLink } from "react-csv";
+const LoadingSpinner = dynamic(
+  () => import("@/components/common/loading-spinner"),
+  {
+    ssr: false,
+  }
+);
+import { Button } from "@/components/ui/button";
+
 import dynamic from "next/dynamic";
 import { DatabaseZap, Download, Loader2, Trash2 } from "lucide-react";
 import { useState } from "react";
