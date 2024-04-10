@@ -13,13 +13,14 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   const data = await request.json();
   savedQueries = [...savedQueries, data.query];
-  return NextResponse.json({ response: savedQueries }, { status: 200 });
+  return NextResponse.json({ response: data.query }, { status: 200 });
 }
 export async function DELETE(request: NextRequest) {
   const data = await request.json();
+  const responseData = savedQueries[data.index];
   savedQueries = savedQueries.filter(
     (_: any, index: number) => index !== data.index
   );
 
-  return NextResponse.json({ response: savedQueries }, { status: 200 });
+  return NextResponse.json({ response: responseData }, { status: 200 });
 }

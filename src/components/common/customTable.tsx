@@ -8,6 +8,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
+
 import { useVirtualizer } from "@tanstack/react-virtual";
 
 import {
@@ -91,7 +92,6 @@ const CustomTable = ({ invoices }: { invoices: [] }) => {
   //All important CSS styles are included as inline styles for this example. This is not recommended for your code.
   return (
     <div className="overflow-x-auto  w-[calc(100vw-260px)]">
-      ({data.length} rows)
       <div className="overflow-auto relative h-[300px]" ref={tableContainerRef}>
         {/* Even though we're still using sematic table tags, we must use CSS grid and flexbox for dynamic row heights */}
         <Table className="w-full text-left grid">

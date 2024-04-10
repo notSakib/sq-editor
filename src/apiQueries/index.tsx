@@ -5,6 +5,7 @@ import {
   getSavedQueries,
   postSavedQueries,
 } from "@/lib/api";
+import toast from "react-hot-toast";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 export const useQueryData = () =>
@@ -34,6 +35,7 @@ export const useAddQuery = () => {
       return postSavedQueries(query);
     },
     onSuccess: () => {
+      toast.success(`Query added successfully`);
       queryClient.invalidateQueries({ queryKey: ["GET_SAVED_QUERIES"] });
     },
   });
@@ -45,6 +47,7 @@ export const useDeleteQuery = () => {
       return deleteSavedQueries(index);
     },
     onSuccess: () => {
+      toast.success(`Query deleted successfully`);
       queryClient.invalidateQueries({ queryKey: ["GET_SAVED_QUERIES"] });
     },
   });

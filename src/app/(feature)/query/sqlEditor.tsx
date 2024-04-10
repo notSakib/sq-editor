@@ -2,9 +2,10 @@
 import CustomTable from "@/components/common/customTable";
 import LoadingSpinner from "@/components/common/loading-spinner";
 import { Button } from "@/components/ui/button";
+import { CSVLink } from "react-csv";
 
-import { DatabaseZap, Loader2, Trash2 } from "lucide-react";
-import { useRef, useState } from "react";
+import { DatabaseZap, Download, Loader2, Trash2 } from "lucide-react";
+import { useState } from "react";
 import CodeEditor from "@uiw/react-textarea-code-editor";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -24,14 +25,14 @@ export default function SqlEditor({ savedQueriesInitialData }: any) {
     refetch: fetchData,
   } = useQueryData();
   const { data: dbColumn } = useDbColumn({ activeTab });
-  const { mutate } = useAddQuery();
-  const { mutate: deleteQuery, isPending: isDeletePending } = useDeleteQuery();
+  const { mutate: saveQuery, isPending: isSaveLoading } = useAddQuery();
+  const { mutate: deleteQuery } = useDeleteQuery();
   const { data: savedQueries } = useGetSavedQueries(savedQueriesInitialData);
   const handleQuerySubmit = () => {
     fetchData();
   };
-  const handleResetQuery = () => {
-    mutate({ query });
+  const handleSaveQuery = () => {
+    saveQuery({ query });
   };
   const handleDeleteQuery = (e: any, index: number) => {
     e.stopPropagation();
@@ -41,7 +42,7 @@ export default function SqlEditor({ savedQueriesInitialData }: any) {
   return (
     <div className="flex flex-col gap-4 mt-4">
       <div className="flex  gap-4">
-        <div className="flex w-full flex-col gap-2 h-[calc(100vh-450px)]">
+        <div className="flex w-full flex-col gap-2 h-[calc(100vh-480px)]">
           <CodeEditor
             value={query}
             language="sql"
@@ -57,13 +58,17 @@ export default function SqlEditor({ savedQueriesInitialData }: any) {
           />
           <div className="flex justify-end gap-4">
             <Button
-              onClick={handleResetQuery}
+              onClick={handleSaveQuery}
               variant="secondary"
               className="flex align-middle gap-2 "
+              disabled={isSaveLoading}
             >
+              {isSaveLoading && (
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              )}
               Save
             </Button>
-            <Button disabled={isLoading} onClick={handleQuerySubmit}>
+            <Button disabled={isLoading || !query} onClick={handleQuerySubmit}>
               {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               Run Query
             </Button>
@@ -125,7 +130,31 @@ export default function SqlEditor({ savedQueriesInitialData }: any) {
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        <div>{invoices.length > 0 && <CustomTable invoices={invoices} />}</div>
+        <div>
+          {invoices.length > 0 ? (
+            <div>
+              <div className="flex justify-between items-center py-1">
+                <span>({invoices.length} rows)</span>
+                <CSVLink data={invoices} filename={"atlan-query.csv"}>
+                  <Button
+                    variant="ghost"
+                    className="text-sm flex gap-2 items-center"
+                  >
+                    <Download className="h-4 w-4" />
+                    Download CSV
+                  </Button>
+                </CSVLink>
+              </div>
+              <CustomTable invoices={invoices} />
+            </div>
+          ) : (
+            <div className="flex justify-center py-12 w-full text-center">
+              <h3>
+                No data to display. Please run a 🔍 query to show results.
+              </h3>
+            </div>
+          )}
+        </div>
       )}
     </div>
   );
