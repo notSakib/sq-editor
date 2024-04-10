@@ -34,14 +34,19 @@ export default function SqlEditor({ savedQueriesInitialData }: any) {
   const { data: dbColumn } = useDbColumn({ activeTab });
   const { mutate: saveQuery, isPending: isSaveLoading } = useAddQuery();
   const { mutate: deleteQuery } = useDeleteQuery();
-  const { data: savedQueries } = useGetSavedQueries(savedQueriesInitialData);
+  const { data: savedQueries }: { data: string[] } = useGetSavedQueries(
+    savedQueriesInitialData
+  );
   const handleQuerySubmit = () => {
     fetchData();
   };
   const handleSaveQuery = () => {
     saveQuery({ query });
   };
-  const handleDeleteQuery = (e: any, index: number) => {
+  const handleDeleteQuery = (
+    e: React.MouseEvent<SVGSVGElement>,
+    index: number
+  ) => {
     e.stopPropagation();
     deleteQuery({ index });
   };
@@ -93,7 +98,7 @@ export default function SqlEditor({ savedQueriesInitialData }: any) {
             </TabsList>
             <TabsContent value="saved">
               <ul className="h-[calc(100vh-500px)] overflow-auto px-1">
-                {savedQueries.map((list: string, index: number) => (
+                {savedQueries.map((list, index) => (
                   <li
                     className={`py-2  shadow-sm border-1 font-medium text-muted-foreground hover:text-primary  cursor-pointer`}
                     key={list}

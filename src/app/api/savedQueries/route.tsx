@@ -7,7 +7,7 @@ let savedQueries: any = [
   "SELECT * FROM USEr",
   "SELECT * FROM ORDER",
 ];
-export async function GET(request: NextRequest) {
+export async function GET() {
   return NextResponse.json({ response: savedQueries }, { status: 200 });
 }
 export async function POST(request: NextRequest) {

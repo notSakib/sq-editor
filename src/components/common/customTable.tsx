@@ -18,7 +18,7 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
-import { Person } from "@/lib/utils";
+import { Person } from "@/types";
 
 //This is a dynamic row height example, which is more complicated, but allows for a more realistic table.
 //See https://tanstack.com/virtual/v3/docs/examples/react/table for a simpler fixed row height example.

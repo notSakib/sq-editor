@@ -22,17 +22,6 @@ export function getRouteNameFromPath(path: string): string {
   return formattedName;
 }
 
-export type Person = {
-  id: number;
-  firstName: string;
-  lastName: string;
-  age: number;
-  visits: number;
-  progress: number;
-  status: "relationship" | "complicated" | "single";
-  createdAt: Date;
-};
-
 const range = (len: number) => {
   const arr: number[] = [];
   for (let i = 0; i < len; i++) {
