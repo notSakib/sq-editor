@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3002/api";
+const BASE_URL = "https://" + process.env.VERCEL_URL + "/";
 export const getQueryData = async () => {
   const res = await fetch(`${BASE_URL}/getData`, {
     method: "GET",
