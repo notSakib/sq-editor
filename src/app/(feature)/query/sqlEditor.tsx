@@ -1,9 +1,11 @@
 "use client";
-import CustomTable from "@/components/common/customTable";
+const CustomTable = dynamic(() => import("@/components/common/customTable"), {
+  ssr: false,
+});
 import LoadingSpinner from "@/components/common/loading-spinner";
 import { Button } from "@/components/ui/button";
 import { CSVLink } from "react-csv";
-
+import dynamic from "next/dynamic";
 import { DatabaseZap, Download, Loader2, Trash2 } from "lucide-react";
 import { useState } from "react";
 import CodeEditor from "@uiw/react-textarea-code-editor";
