@@ -1,4 +1,4 @@
-const BASE_URL = process.env.NEXT_PUBLIC_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 export const getQueryData = async () => {
   const res = await fetch(`${BASE_URL}/getData`, {
     method: "GET",
