@@ -1,4 +1,4 @@
-const BASE_URL = "https://" + process.env.VERCEL_URL + "/";
+const BASE_URL = "https://" + process.env.VERCEL_URL + "/api";
 export const getQueryData = async () => {
   const res = await fetch(`${BASE_URL}/getData`, {
     method: "GET",
@@ -10,7 +10,6 @@ export const getQueryData = async () => {
   return data.response;
 };
 export const getSavedQueries = async () => {
-  console.log("clled");
   const res = await fetch(`${BASE_URL}/savedQueries`, {
     method: "GET",
   });
@@ -18,6 +17,7 @@ export const getSavedQueries = async () => {
     return null;
   }
   const data: any = await res.json();
+  console.log("data", data);
   return data.response;
 };
 export const getDbColumns = async () => {
