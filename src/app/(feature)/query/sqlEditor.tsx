@@ -13,7 +13,9 @@ import { Button } from "@/components/ui/button";
 import dynamic from "next/dynamic";
 import { DatabaseZap, Download, Loader2, Trash2 } from "lucide-react";
 import { useState } from "react";
-import CodeEditor from "@uiw/react-textarea-code-editor";
+const CodeEditor = dynamic(() => import("@uiw/react-textarea-code-editor"), {
+  ssr: false,
+});
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   useAddQuery,
