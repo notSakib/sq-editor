@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import dynamic from "next/dynamic";
 import { DatabaseZap, Download, Loader2, Trash2 } from "lucide-react";
 import { useState } from "react";
-import CodeEditor from "@uiw/react-textarea-code-editor";
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   useAddQuery,
@@ -22,8 +22,9 @@ import {
   useGetSavedQueries,
   useQueryData,
 } from "@/apiQueries";
+import SqlEditor from "@/components/common/sqlEditor";
 
-export default function SqlEditor({ savedQueriesInitialData }: any) {
+export default function QueryPage({ savedQueriesInitialData }: any) {
   const [query, setQuery] = useState<string>("SELECT * FROM TABLE");
   const [activeTab, setActiveTab] = useState<string>("saved");
   const {
@@ -55,18 +56,7 @@ export default function SqlEditor({ savedQueriesInitialData }: any) {
     <div className="flex flex-col gap-4 mt-4">
       <div className="flex  gap-4">
         <div className="flex w-full flex-col gap-2 h-[calc(100vh-480px)]">
-          <CodeEditor
-            value={query}
-            language="sql"
-            placeholder=""
-            onChange={(evn) => setQuery(evn.target.value)}
-            padding={15}
-            className="h-full w-full rounded-[8px] bg-primary-foreground"
-            style={{
-              fontFamily:
-                "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
-            }}
-          />
+          <SqlEditor value={query} setValue={setQuery} />
           <div className="flex justify-end gap-4">
             <Button
               onClick={handleSaveQuery}

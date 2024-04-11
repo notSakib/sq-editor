@@ -1,5 +1,5 @@
 import React from "react";
-import SqlEditor from "./sqlEditor";
+import SqlEditor from "./queryPage";
 import { getSavedQueries } from "@/lib/api";
 
 const Query = async () => {
