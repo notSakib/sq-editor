@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { PathName } from "@/components/common/pathName";
 import SideBar from "@/components/common/sidebar";
 
-export default async function PageLayout({
+export default function PageLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
