@@ -10,12 +10,16 @@ Crafted with <span style="color: #8b0000;">&hearts;</span> by Sakib Khan
 <p align="center">
     <img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white" />
     <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
-    <img src="https://avatars.githubusercontent.com/u/139895814?s=200&v=4" />
+    <img src="https://avatars.githubusercontent.com/u/139895814?s=200&v=4" height="26px" width="60px"/>
 </p>
 
 ## View Demo on the Deployed Site 🚀
 
 <p>Click on the <a href="https://sql--editor.vercel.app/">link</a> to view the deployed site.</p>
+
+## Server
+
+- Utilized the Next.js API directory to establish APIs for various features such as saving, deleting, retrieving, and displaying data for queries.
 
 ## UI Component 🚀
 
@@ -31,3 +35,11 @@ Crafted with <span style="color: #8b0000;">&hearts;</span> by Sakib Khan
 ## Performance 🚀
 
 <img src="./public/performance-screenshot.png">
+
+## Optimization 🚀
+
+
+- Implemented virtualization for tables to efficiently render large datasets.
+- Prefetched API calls on the server to minimize layout shifts and ensure content availability on initial render.
+- Utilized `prefetch={false}` on links/next components to minimize unused JavaScript on the initial load.
+- Dynamically imported components to defer rendering until they are required, optimizing initial render time.
