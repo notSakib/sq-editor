@@ -10,7 +10,7 @@ Crafted with <span style="color: #8b0000;">&hearts;</span> by Sakib Khan
 <p align="center">
     <img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white" />
     <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
-    <img src="https://avatars.githubusercontent.com/u/139895814?s=200&v=4" height="26px" width="60px"/>
+    <img src="https://avatars.githubusercontent.com/u/139895814?s=200&v=4" height="28px" width="70px"/>
 </p>
 
 ## View Demo on the Deployed Site 🚀
@@ -37,7 +37,6 @@ Crafted with <span style="color: #8b0000;">&hearts;</span> by Sakib Khan
 <img src="./public/performance-screenshot.png">
 
 ## Optimization 🚀
-
 
 - Implemented virtualization for tables to efficiently render large datasets.
 - Prefetched API calls on the server to minimize layout shifts and ensure content availability on initial render.
