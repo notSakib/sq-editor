@@ -150,9 +150,9 @@ export default function QueryPage({ savedQueriesInitialData }: any) {
             </div>
           ) : (
             <div className="flex justify-center py-12 w-full text-center">
-              <h3 className="text-lg font-medium">
+              <p className="text-lg font-medium">
                 No data to display. Please run a 🔍 query to show results.
-              </h3>
+              </p>
             </div>
           )}
         </div>
