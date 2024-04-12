@@ -3,14 +3,14 @@ SQL Editor - Atlan Frontend Engineering Assignment
 </h1>
 
 <p align="center">
-Crafted with <span style="color: #8b0000;">&hearts;</span> by Kushagra Gupta
+Crafted with <span style="color: #8b0000;">&hearts;</span> by Sakib Khan
 </p>
 
 <h2 align="center">Built using: </h2>
 <p align="center">
     <img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white" />
     <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
-    <img src="https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" />
+    <img src="https://avatars.githubusercontent.com/u/139895814?s=200&v=4" />
 </p>
 
 ## View Demo on the Deployed Site 🚀
