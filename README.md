@@ -1,5 +1,5 @@
 <h1 align= "center">
-SQL Editor - Atlan Frontend Engineering Assignment
+SQL Editor
 </h1>
 
 <p align="center">
